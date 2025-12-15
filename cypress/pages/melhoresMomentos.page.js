@@ -7,7 +7,8 @@ class MelhoresMomentos {
     tituloTela: 'Melhores momentos das Partidas Finalizadas',
     mensagemSemTime: 'Nenhum time foi encontrado',
     videoThumbnail: 'img[src*="youtube.com/vi"]',
-    modalVideo: '[role="dialog"]'
+    modalVideo: '[role="dialog"]',
+    mensagemSemCampeonato: 'Nenhum campeonato foi encontrado',
   };
 
   open() {
@@ -78,6 +79,25 @@ class MelhoresMomentos {
     cy.contains(this.seletores.mensagemSemTime, { timeout: 10000 })
       .should('be.visible');
   }
+
+  clicarCampoPesquisarCampeonato() {
+    cy.get(this.seletores.accordionButton, { timeout: 10000 })
+      .last()
+      .click();
+  }
+  
+  pesquisarCampeonatoInexistente(nome) {
+    cy.get(this.seletores.inputPesquisar, { timeout: 10000 })
+      .last()
+      .clear({ force: true })
+      .type(nome, { delay: 150 });
+  }
+  
+  validarMensagemNenhumCampeonatoEncontrado() {
+    cy.contains(this.seletores.mensagemSemCampeonato, { timeout: 10000 })
+      .should('be.visible');
+  }
+  
 }
 
 export default new MelhoresMomentos();

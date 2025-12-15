@@ -18,9 +18,18 @@ describe('Melhores momentos', () => {
     MelhoresMomentos.selecionarPrimeiroCampeonato();
     MelhoresMomentos.validarCampeonatoSelecionado();
   });
+
   it('CT-08.2 | Pesquisa sem resultados por time', () => {
     MelhoresMomentos.abrirPrimeiroAccordion();
     MelhoresMomentos.pesquisarTimeInexistente('asadfg');
     MelhoresMomentos.validarMensagemNenhumTimeEncontrado();
   });
+
+  it('CT-08.3 - Deve exibir mensagem ao pesquisar campeonato inexistente', () => {
+    MelhoresMomentos.validarTelaMelhoresMomentos();
+    MelhoresMomentos.clicarCampoPesquisarCampeonato();
+    MelhoresMomentos.pesquisarCampeonatoInexistente('asdfg');
+    MelhoresMomentos.validarMensagemNenhumCampeonatoEncontrado();
+  });
+  
 });
