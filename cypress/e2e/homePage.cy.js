@@ -2,11 +2,11 @@ import HomePage from '../pages/home.page';
 
 describe('Home page', () => {
   beforeEach(() => {
-    HomePage.open()
-    cy.login('usuario');
+    HomePage.open();
+    HomePage.validarUrlHome();
   });
 
-  it('', () => {
-    
+  it('Deve filtrar jogos pelo time', () => {
+    HomePage.filtrarPorTime('Coritiba');
   });
 });
