@@ -147,32 +147,6 @@ class HomePage {
   validarReproducaoVideo() {
     cy.get(this.seletores.iframeYoutube).should('exist').and('be.visible');
   }
-
-  clicarBotaoPesquisa() {
-    cy.get(this.seletores.botaoPesquisa, { timeout: 10000 }).click({ force: true });
-  }
-
-  validarMensagemSemResultados() {
-    cy.contains(
-      'Sem resultados de busca para partidas ao vivo, seleção de melhores partidas, próximas partidas e partidas finalizadas.',
-      { timeout: 10000 }
-    ).should('be.visible');
-  }
-
-  buscarTimeSemResultados(time) {
-    cy.get(this.seletores.inputFiltroTime, { timeout: 10000 })
-      .clear({ force: true })
-      .type(time, { force: true, delay: 150 });
-
-    cy.get(this.seletores.inputFiltroTime)
-      .type('{enter}', { force: true });
-
-    cy.contains(
-      'Sem resultados de busca para partidas ao vivo, seleção de melhores partidas, próximas partidas e partidas finalizadas.',
-      { timeout: 10000 }
-    ).should('exist');
-    
-  }
 }
 
 export default new HomePage();

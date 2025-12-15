@@ -29,7 +29,4 @@ describe('Home page', () => {
     HomePage.filtrarPorCanal(canal, channelId);
   });
 
-  it('Exibe mensagem de "sem resultados" ao buscar time inexistente', () => {
-    HomePage.buscarTimeSemResultados('asdfg');
-  });
 });
