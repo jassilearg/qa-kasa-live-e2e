@@ -9,6 +9,7 @@ class MelhoresMomentos {
     videoThumbnail: 'img[src*="youtube.com/vi"]',
     modalVideo: '[role="dialog"]',
     mensagemSemCampeonato: 'Nenhum campeonato foi encontrado',
+    textoResultadoTime: 'São Paulo x Coritiba'
   };
 
   open() {
@@ -95,6 +96,24 @@ class MelhoresMomentos {
   
   validarMensagemNenhumCampeonatoEncontrado() {
     cy.contains(this.seletores.mensagemSemCampeonato, { timeout: 10000 })
+      .should('be.visible');
+  }
+
+  pesquisarTime(nomeTime) {
+    cy.get(this.seletores.inputPesquisar, { timeout: 10000 })
+      .first()
+      .clear({ force: true })
+      .type(nomeTime, { delay: 150 });
+  }
+
+  selecionarPrimeiroTime() {
+    cy.get(this.seletores.checkboxCampeonato, { timeout: 10000 })
+      .first()
+      .check({ force: true });
+  }
+
+  validarVideosDoTime() {
+    cy.contains('p', this.seletores.textoResultadoTime, { timeout: 10000 })
       .should('be.visible');
   }
   

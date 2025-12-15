@@ -31,5 +31,11 @@ describe('Melhores momentos', () => {
     MelhoresMomentos.pesquisarCampeonatoInexistente('asdfg');
     MelhoresMomentos.validarMensagemNenhumCampeonatoEncontrado();
   });
-  
+
+  it('CT-08.4 - Deve exibir vídeos ao pesquisar por time', () => {
+    MelhoresMomentos.abrirPrimeiroAccordion();
+    MelhoresMomentos.pesquisarTime('Coritiba');
+    MelhoresMomentos.selecionarPrimeiroTime();
+    MelhoresMomentos.validarVideosDoTime();
+  });
 });
