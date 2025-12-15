@@ -8,7 +8,7 @@ describe('Melhores momentos', () => {
 
   it('Deve reproduzir o vídeo de melhores momentos', () => {
     MelhoresMomentos.validarTelaMelhoresMomentos();
-    MelhoresMomentos.clicarNoVideo();
+    MelhoresMomentos.clicarNoPrimeiroVideo();
     MelhoresMomentos.validarModalVideoAberto();
   });
 
@@ -17,5 +17,10 @@ describe('Melhores momentos', () => {
     MelhoresMomentos.pesquisarCampeonato('Brasileirão Série A');
     MelhoresMomentos.selecionarPrimeiroCampeonato();
     MelhoresMomentos.validarCampeonatoSelecionado();
+  });
+  it('CT-08.2 | Pesquisa sem resultados por time', () => {
+    MelhoresMomentos.abrirPrimeiroAccordion();
+    MelhoresMomentos.pesquisarTimeInexistente('asadfg');
+    MelhoresMomentos.validarMensagemNenhumTimeEncontrado();
   });
 });
