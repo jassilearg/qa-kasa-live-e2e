@@ -9,4 +9,8 @@ describe('Home page', () => {
   it('Deve filtrar jogos pelo time', () => {
     HomePage.filtrarPorTime('Coritiba');
   });
+
+  it('Deve filtrar jogos pelo campeonato Brasileirão Série A', () => {
+    HomePage.filtrarPorCampeonato('Brasileirão Série A');
+  });
 });
