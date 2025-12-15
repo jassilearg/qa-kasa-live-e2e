@@ -10,7 +10,7 @@ describe('Home page', () => {
     HomePage.filtrarPorTime('Coritiba');
   });
 
-  it('Deve filtrar jogos pelo campeonato Brasileirão Série A', () => {
+  it('Deve filtrar jogos pelo campeonato', () => {
     HomePage.filtrarPorCampeonato('Brasileirão Série A');
   });
 
@@ -22,4 +22,10 @@ describe('Home page', () => {
     });
   });
 
+  it('Deve filtrar partidas pelo canal via UI e API', () => {
+    const canal = 'GloboEsporte.com';
+    const channelId = 671;
+
+    HomePage.filtrarPorCanal(canal, channelId);
+  });
 });

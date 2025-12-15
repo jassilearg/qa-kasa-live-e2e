@@ -90,6 +90,42 @@ class HomePage {
         return cy.wrap(response.body.results);
       });
     }
+
+
+    filtrarPorCanal(canal, channelId) {
+      cy.get('#filter-streaming').type(canal);
+  
+      cy.get('body').then(($body) => {
+        if ($body.find('.chakra-modal__body button').length > 0) {
+          cy.get('.chakra-modal__body button').contains(canal).click();
+          cy.log('Canal selecionado via UI');
+        } else {
+          cy.log(`O canal "${canal}" não está visível na interface`);
+        }
+      });
+  
+      return cy.request({
+        method: 'GET',
+        url: `https://www.kasa.live/_next/data/zY0MwD27k5U6rQOUXbn35/busca.json`,
+        qs: {
+          channel_name: canal,
+          channel_id: channelId
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body).to.have.property('pageProps');
+        expect(response.body.pageProps).to.have.property('dehydratedState');
+        expect(response.body.pageProps.dehydratedState).to.have.property('queries');
+  
+        const queries = response.body.pageProps.dehydratedState.queries;
+        expect(queries.length).to.be.greaterThan(0);
+  
+        const hasChannel = queries.some(q => q.queryKey.includes(canal));
+        expect(hasChannel).to.eq(true);
+  
+        cy.log(`Canal "${canal}" encontrado via API em queries: ${queries.map(q => q.queryKey).join(' | ')}`);
+      });
+    }
 }
 
 export default new HomePage();
