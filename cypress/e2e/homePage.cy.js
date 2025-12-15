@@ -13,4 +13,13 @@ describe('Home page', () => {
   it('Deve filtrar jogos pelo campeonato Brasileirão Série A', () => {
     HomePage.filtrarPorCampeonato('Brasileirão Série A');
   });
+
+  it('Deve retornar partidas da data via API', () => {
+    const dataFiltro = '2025-05-10';
+  
+    HomePage.filtrarPorDataAPI(dataFiltro).then((results) => {
+      expect(results.length).to.be.greaterThan(0);
+    });
+  });
+
 });
