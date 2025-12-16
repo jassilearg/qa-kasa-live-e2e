@@ -1,6 +1,6 @@
 ## Projeto de Testes Automatizados - Kasa Live
 
-Objetivo
+Objetivo: \
 Garantir a qualidade das funcionalidades core do sistema, priorizando fluxos críticos para o usuário final.
 
 ### Estrutura do Projeto
