@@ -6,6 +6,10 @@ class FavoritosPage {
       modalSelecaoTimes: '[role="dialog"]',
     };
 
+    open(){
+       cy.visit('/favoritos');
+      }
+
     esperarPaginaPronta() {
       cy.url({ timeout: 10000 }).should('include', '/favoritos');
         cy.get(this.seletores.botaoFavoritarTime, { timeout: 10000 })

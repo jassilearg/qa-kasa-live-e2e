@@ -1,9 +1,8 @@
-import HomePage from '../pages/home.page';
 import FavoritosPage from '../pages/favoritos.page';
 
 describe('Favoritos — Favoritar time', () => {
   beforeEach(() => {
-    HomePage.open();
+    FavoritosPage.open();
     cy.login('usuario');
     cy.intercept('GET', '**/user/profile/**').as('getProfile');
     cy.wait('@getProfile');
