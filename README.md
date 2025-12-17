@@ -11,7 +11,7 @@ Garantir a qualidade das funcionalidades core do sistema, priorizando fluxos cr�
 │ ├── fixtures/ # Dados de teste
 │ ├── support/ # Comandos e configurações customizadas
 │ └── pages/ # Páginas do sistema
-├── docs/ # Documentação de testes (PDFs, estratégias)
+├── docs/ # Documentação de testes (PDFs, estratégias, relatório de progresso)
 ├── cypress.config.ts # Configuração do Cypress
 ├── package.json
 └── README.md
@@ -72,4 +72,13 @@ Os testes de compatibilidade foram executados em ambiente desktop, nos navegador
 O documento completo da Estratégia e Execução de Testes está disponível em:
 ```bash
 docs/Estratégia de Testes – Kasa Live.pdf
+```
+### Relatório de Progresso
+
+O Relatório de Progresso apresenta a organização das atividades, critérios de priorização adotados, dificuldades enfrentadas durante a execução do desafio e reflexões sobre as decisões tomadas ao longo do desenvolvimento dos testes. O documento tem como objetivo dar visibilidade ao processo, às limitações encontradas e às estratégias utilizadas para maximizar o valor entregue dentro do tempo disponível.
+
+### Documento completo
+O Relatório de Progresso está disponível em:
+```bash
+docs/Relatório de Progresso - Desafio QA.pdf
 ```
