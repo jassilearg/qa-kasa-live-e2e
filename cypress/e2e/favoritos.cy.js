@@ -11,7 +11,7 @@ describe('Favoritos — Favoritar time', () => {
     FavoritosPage.esperarPaginaPronta();
   });
 
-  it('Deve favoritar um time com sucesso', () => {
+  it('CT-01 - Deve favoritar um time com sucesso', () => {
     FavoritosPage.favoritarPrimeiroTime();
   });
 });

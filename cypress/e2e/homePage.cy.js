@@ -6,15 +6,11 @@ describe('Home page', () => {
     HomePage.validarUrlPaginaInicial();
   });
 
-  it('Deve filtrar jogos pelo time', () => {
+  it('CT-02.1 - Deve filtrar jogos pelo time', () => {
     HomePage.filtrarPorTime('Coritiba');
   });
 
-  it('Deve filtrar jogos pelo campeonato', () => {
-    HomePage.filtrarPorCampeonato('Brasileirão Série A');
-  });
-
-  it('Deve retornar partidas da data via API', () => {
+  it('CT-02.2 - Deve retornar partidas da data via API', () => {
     const dataFiltro = '2025-05-10';
   
     HomePage.filtrarPorDataAPI(dataFiltro).then((results) => {
@@ -22,7 +18,11 @@ describe('Home page', () => {
     });
   });
 
-  it('Deve filtrar partidas pelo canal via UI e API', () => {
+  it('CT-02.3 - Deve filtrar jogos pelo campeonato', () => {
+    HomePage.filtrarPorCampeonato('Brasileirão Série A');
+  });
+
+  it('CT-02.4 - Deve filtrar partidas pelo canal via UI e API', () => {
     const canal = 'GloboEsporte.com';
     const channelId = 671;
 
